@@ -204,20 +204,25 @@ export default function Home() {
 
   return (
     <div onMouseMove={handleMouseMove} className="flex min-h-screen relative bg-[#0a192f]">
-      {/* Gradient Overlay – збільшено до 300px, з менш яскравим центром */}
+      {/* Більш рівномірний розподіл фіолетового кольору */}
       <div 
         className="pointer-events-none absolute inset-0 z-10"
         style={{
-          background: `radial-gradient(circle 500px at ${mousePosition.x}px ${mousePosition.y}px,
-            rgba(170, 0, 255, 0.08) 0%,
-            rgba(170, 0, 255, 0.075) 10%,
-            rgba(170, 0, 255, 0.07) 20%,
-            rgba(170, 0, 255, 0.065) 30%,
-            rgba(170, 0, 255, 0.06) 40%,
-            rgba(170, 0, 255, 0.055) 50%,
-            rgba(170, 0, 255, 0.04) 70%,
-            rgba(170, 0, 255, 0.02) 85%,
-            transparent 100%)`
+          background: `radial-gradient(circle 400px at ${mousePosition.x}px ${mousePosition.y}px,
+            rgba(180, 20, 255, 0.10) 0%,
+            rgba(170, 10, 255, 0.09) 20%,
+            rgba(160, 10, 255, 0.07) 40%,
+            rgba(150, 0, 255, 0.05) 60%,
+            rgba(140, 0, 240, 0.02) 80%,
+            transparent 100%)`,
+          WebkitBackgroundImage: `radial-gradient(circle 400px at ${mousePosition.x}px ${mousePosition.y}px,
+            rgba(180, 20, 255, 0.10) 0%,
+            rgba(170, 10, 255, 0.09) 20%,
+            rgba(160, 10, 255, 0.07) 40%,
+            rgba(150, 0, 255, 0.05) 60%,
+            rgba(140, 0, 240, 0.02) 80%,
+            transparent 100%)`,
+          mixBlendMode: "normal"
         }}
       />
 
