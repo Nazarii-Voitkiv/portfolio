@@ -24,6 +24,41 @@ export default function Home() {
     setActiveSection(section);
   };
 
+  // Додаємо Intersection Observer для виявлення поточного розділу під час прокрутки
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.6, // Розділ вважається видимим коли більше 60% в зоні видимості
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('data-section');
+          if (id) {
+            setActiveSection(id);
+          }
+        }
+      });
+    }, options);
+
+    // Спостерігаємо за всіма розділами
+    const sections = [aboutRef.current, experienceRef.current, projectsRef.current];
+    sections.forEach((section, index) => {
+      if (section) {
+        section.setAttribute('data-section', ['about', 'experience', 'projects'][index]);
+        observer.observe(section);
+      }
+    });
+
+    return () => {
+      sections.forEach(section => {
+        if (section) observer.unobserve(section);
+      });
+    };
+  }, []);
+
   const aboutContent = (
     <div className="max-w-[600px] space-y-8 text-gray-400">
       <p className="text-lg leading-relaxed">
@@ -98,6 +133,12 @@ export default function Home() {
             className="px-3 py-1 rounded-full text-sm"
             style={{ backgroundColor: 'rgba(134, 231, 212, 0.1)', color: 'rgb(134, 231, 212)' }}
           >
+            React
+          </span>
+          <span 
+            className="px-3 py-1 rounded-full text-sm"
+            style={{ backgroundColor: 'rgba(134, 231, 212, 0.1)', color: 'rgb(134, 231, 212)' }}
+          >
             Next.js
           </span>
           <span 
@@ -142,8 +183,9 @@ export default function Home() {
   );
 
   const projectsContent = (
-    <div className="max-w-[600px] space-y-8 text-gray-400">
-      <div className="rounded-lg overflow-hidden transition-all duration-200">
+    <div className="max-w-[600px] space-y-8 text-gray-400 group/projects">
+      {/* Project 1 */}
+      <div className="rounded-lg overflow-hidden transition-all duration-200 border border-transparent hover:border-gray-700 hover:bg-gray-800/20 group/item hover:opacity-100 group-hover/projects:opacity-40 hover:!opacity-100">
         <div className="flex gap-6 items-start p-6">
           <div className="w-[240px] h-[135px] relative shrink-0 rounded-md overflow-hidden border border-transparent transition-colors duration-200">
             <Image
@@ -161,17 +203,16 @@ export default function Home() {
                 height="20" 
                 viewBox="0 0 20 20" 
                 fill="none" 
-                className="transform transition-all duration-200"
+                className="transform transition-all duration-200 group-hover/item:-translate-y-1 group-hover/item:translate-x-1 group-hover/item:stroke-[rgb(134,231,212)]"
+                stroke="currentColor"
               >
                 <path 
                   d="M7 13L13 7" 
-                  stroke="currentColor" 
                   strokeWidth="1.5" 
                   strokeLinecap="round"
                 />
                 <path 
                   d="M7 7H13V13" 
-                  stroke="currentColor" 
                   strokeWidth="1.5" 
                   strokeLinecap="round" 
                   strokeLinejoin="round"
@@ -194,6 +235,234 @@ export default function Home() {
               <span className="px-3 py-1 rounded-full text-sm"
                     style={{ backgroundColor: 'rgba(134, 231, 212, 0.1)', color: 'rgb(134, 231, 212)' }}>
                 Node.js
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Project 2 */}
+      <div className="rounded-lg overflow-hidden transition-all duration-200 border border-transparent hover:border-gray-700 hover:bg-gray-800/20 group/item hover:opacity-100 group-hover/projects:opacity-40 hover:!opacity-100">
+        <div className="flex gap-6 items-start p-6">
+          <div className="w-[240px] h-[135px] relative shrink-0 rounded-md overflow-hidden border border-transparent transition-colors duration-200">
+            <Image
+              src="/projects/project2.jpeg"
+              alt="E-commerce Platform"
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div>
+            <div className="flex items-center gap-1 mb-2">
+              <h3 className="text-xl font-medium text-gray-100">E-commerce Platform</h3>
+              <svg 
+                width="20" 
+                height="20" 
+                viewBox="0 0 20 20" 
+                fill="none" 
+                className="transform transition-all duration-200 group-hover/item:-translate-y-1 group-hover/item:translate-x-1 group-hover/item:stroke-[rgb(134,231,212)]"
+                stroke="currentColor"
+              >
+                <path 
+                  d="M7 13L13 7" 
+                  strokeWidth="1.5" 
+                  strokeLinecap="round"
+                />
+                <path 
+                  d="M7 7H13V13" 
+                  strokeWidth="1.5" 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+            <p className="text-gray-400 mb-4">
+              Full-featured e-commerce solution with product management,
+              shopping cart, payment processing and order tracking capabilities.
+            </p>
+            <div className="flex flex-wrap gap-2">
+              <span className="px-3 py-1 rounded-full text-sm"
+                    style={{ backgroundColor: 'rgba(134, 231, 212, 0.1)', color: 'rgb(134, 231, 212)' }}>
+                Next.js
+              </span>
+              <span className="px-3 py-1 rounded-full text-sm"
+                    style={{ backgroundColor: 'rgba(134, 231, 212, 0.1)', color: 'rgb(134, 231, 212)' }}>
+                MongoDB
+              </span>
+              <span className="px-3 py-1 rounded-full text-sm"
+                    style={{ backgroundColor: 'rgba(134, 231, 212, 0.1)', color: 'rgb(134, 231, 212)' }}>
+                Stripe API
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      {/* Project 3 */}
+      <div className="rounded-lg overflow-hidden transition-all duration-200 border border-transparent hover:border-gray-700 hover:bg-gray-800/20 group/item hover:opacity-100 group-hover/projects:opacity-40 hover:!opacity-100">
+        <div className="flex gap-6 items-start p-6">
+          <div className="w-[240px] h-[135px] relative shrink-0 rounded-md overflow-hidden border border-transparent transition-colors duration-200">
+            <Image
+              src="/projects/project3.jpeg"
+              alt="Task Management App"
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div>
+            <div className="flex items-center gap-1 mb-2">
+              <h3 className="text-xl font-medium text-gray-100">Task Management App</h3>
+              <svg 
+                width="20" 
+                height="20" 
+                viewBox="0 0 20 20" 
+                fill="none" 
+                className="transform transition-all duration-200 group-hover/item:-translate-y-1 group-hover/item:translate-x-1 group-hover/item:stroke-[rgb(134,231,212)]"
+                stroke="currentColor"
+              >
+                <path 
+                  d="M7 13L13 7" 
+                  strokeWidth="1.5" 
+                  strokeLinecap="round"
+                />
+                <path 
+                  d="M7 7H13V13" 
+                  strokeWidth="1.5" 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+            <p className="text-gray-400 mb-4">
+              Collaborative task management system with real-time updates,
+              team assignment and progress tracking functionalities.
+            </p>
+            <div className="flex flex-wrap gap-2">
+              <span className="px-3 py-1 rounded-full text-sm"
+                    style={{ backgroundColor: 'rgba(134, 231, 212, 0.1)', color: 'rgb(134, 231, 212)' }}>
+                Angular
+              </span>
+              <span className="px-3 py-1 rounded-full text-sm"
+                    style={{ backgroundColor: 'rgba(134, 231, 212, 0.1)', color: 'rgb(134, 231, 212)' }}>
+                Spring Boot
+              </span>
+              <span className="px-3 py-1 rounded-full text-sm"
+                    style={{ backgroundColor: 'rgba(134, 231, 212, 0.1)', color: 'rgb(134, 231, 212)' }}>
+                PostgreSQL
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      {/* Project 4 */}
+      <div className="rounded-lg overflow-hidden transition-all duration-200 border border-transparent hover:border-gray-700 hover:bg-gray-800/20 group/item hover:opacity-100 group-hover/projects:opacity-40 hover:!opacity-100">
+        <div className="flex gap-6 items-start p-6">
+          <div className="w-[240px] h-[135px] relative shrink-0 rounded-md overflow-hidden border border-transparent transition-colors duration-200">
+            <Image
+              src="/projects/project4.jpeg"
+              alt="Analytics Dashboard"
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div>
+            <div className="flex items-center gap-1 mb-2">
+              <h3 className="text-xl font-medium text-gray-100">Analytics Dashboard</h3>
+              <svg 
+                width="20" 
+                height="20" 
+                viewBox="0 0 20 20" 
+                fill="none" 
+                className="transform transition-all duration-200 group-hover/item:-translate-y-1 group-hover/item:translate-x-1 group-hover/item:stroke-[rgb(134,231,212)]"
+                stroke="currentColor"
+              >
+                <path 
+                  d="M7 13L13 7" 
+                  strokeWidth="1.5" 
+                  strokeLinecap="round"
+                />
+                <path 
+                  d="M7 7H13V13" 
+                  strokeWidth="1.5" 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+            <p className="text-gray-400 mb-4">
+              Interactive data visualization dashboard with customizable charts,
+              filtering options and exportable reports.
+            </p>
+            <div className="flex flex-wrap gap-2">
+              <span className="px-3 py-1 rounded-full text-sm"
+                    style={{ backgroundColor: 'rgba(134, 231, 212, 0.1)', color: 'rgb(134, 231, 212)' }}>
+                React
+              </span>
+              <span className="px-3 py-1 rounded-full text-sm"
+                    style={{ backgroundColor: 'rgba(134, 231, 212, 0.1)', color: 'rgb(134, 231, 212)' }}>
+                D3.js
+              </span>
+              <span className="px-3 py-1 rounded-full text-sm"
+                    style={{ backgroundColor: 'rgba(134, 231, 212, 0.1)', color: 'rgb(134, 231, 212)' }}>
+                Express
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      {/* Project 5 */}
+      <div className="rounded-lg overflow-hidden transition-all duration-200 border border-transparent hover:border-gray-700 hover:bg-gray-800/20 group/item hover:opacity-100 group-hover/projects:opacity-40 hover:!opacity-100">
+        <div className="flex gap-6 items-start p-6">
+          <div className="w-[240px] h-[135px] relative shrink-0 rounded-md overflow-hidden border border-transparent transition-colors duration-200">
+            <Image
+              src="/projects/project5.jpeg"
+              alt="Social Network Platform"
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div>
+            <div className="flex items-center gap-1 mb-2">
+              <h3 className="text-xl font-medium text-gray-100">Social Network Platform</h3>
+              <svg 
+                width="20" 
+                height="20" 
+                viewBox="0 0 20 20" 
+                fill="none" 
+                className="transform transition-all duration-200 group-hover/item:-translate-y-1 group-hover/item:translate-x-1 group-hover/item:stroke-[rgb(134,231,212)]"
+                stroke="currentColor"
+              >
+                <path 
+                  d="M7 13L13 7" 
+                  strokeWidth="1.5" 
+                  strokeLinecap="round"
+                />
+                <path 
+                  d="M7 7H13V13" 
+                  strokeWidth="1.5" 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+            <p className="text-gray-400 mb-4">
+              Community-driven platform with user profiles, real-time messaging,
+              content sharing and personalized feed algorithms.
+            </p>
+            <div className="flex flex-wrap gap-2">
+              <span className="px-3 py-1 rounded-full text-sm"
+                    style={{ backgroundColor: 'rgba(134, 231, 212, 0.1)', color: 'rgb(134, 231, 212)' }}>
+                Next.js
+              </span>
+              <span className="px-3 py-1 rounded-full text-sm"
+                    style={{ backgroundColor: 'rgba(134, 231, 212, 0.1)', color: 'rgb(134, 231, 212)' }}>
+                Firebase
+              </span>
+              <span className="px-3 py-1 rounded-full text-sm"
+                    style={{ backgroundColor: 'rgba(134, 231, 212, 0.1)', color: 'rgb(134, 231, 212)' }}>
+                WebSockets
               </span>
             </div>
           </div>
@@ -243,7 +512,7 @@ export default function Home() {
                 onClick={() => scrollToSection(aboutRef, 'about')}
                 className="group flex items-center gap-2 text-sm text-gray-400 hover:text-gray-100 transition-colors relative px-4 py-1 -ml-4"
               >
-                <div className="absolute inset-0 bg-gray-800 opacity-0 group-hover:opacity-100 rounded transition-opacity" />
+                <div className={`absolute inset-0 bg-gray-800 ${activeSection === 'about' ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'} rounded transition-opacity`} />
                 <div className={`h-[1px] transition-all z-10 ${
                   activeSection === 'about' 
                     ? 'w-12 bg-gray-100' 
@@ -255,7 +524,7 @@ export default function Home() {
                 onClick={() => scrollToSection(experienceRef, 'experience')}
                 className="group flex items-center gap-2 text-sm text-gray-400 hover:text-gray-100 transition-colors relative px-4 py-1 -ml-4"
               >
-                <div className="absolute inset-0 bg-gray-800 opacity-0 group-hover:opacity-100 rounded transition-opacity" />
+                <div className={`absolute inset-0 bg-gray-800 ${activeSection === 'experience' ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'} rounded transition-opacity`} />
                 <div className={`h-[1px] transition-all z-10 ${
                   activeSection === 'experience' 
                     ? 'w-12 bg-gray-100' 
@@ -267,7 +536,7 @@ export default function Home() {
                 onClick={() => scrollToSection(projectsRef, 'projects')}
                 className="group flex items-center gap-2 text-sm text-gray-400 hover:text-gray-100 transition-colors relative px-4 py-1 -ml-4"
               >
-                <div className="absolute inset-0 bg-gray-800 opacity-0 group-hover:opacity-100 rounded transition-opacity" />
+                <div className={`absolute inset-0 bg-gray-800 ${activeSection === 'projects' ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'} rounded transition-opacity`} />
                 <div className={`h-[1px] transition-all z-10 ${
                   activeSection === 'projects' 
                     ? 'w-12 bg-gray-100' 
@@ -300,15 +569,15 @@ export default function Home() {
       {/* Right Content */}
       <div className="w-1/2 min-h-screen ml-[50%] bg-[#0a192f] overflow-y-auto relative">
         <div className="relative">
-          <div className="pt-20 pb-20 pr-20" ref={aboutRef}>
+          <div className="pt-20 pb-20 pr-20" ref={aboutRef} data-section="about">
             {aboutContent}
           </div>
           
-          <div className="pt-20 pb-20 pr-20" ref={experienceRef}>
+          <div className="pt-20 pb-20 pr-20" ref={experienceRef} data-section="experience">
             {experienceContent}
           </div>
           
-          <div className="pt-20 pb-20 pr-20" ref={projectsRef}>
+          <div className="pt-20 pb-20 pr-20" ref={projectsRef} data-section="projects">
             {projectsContent}
           </div>
         </div>
