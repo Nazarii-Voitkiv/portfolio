@@ -198,11 +198,6 @@ export default function Project4() {
                   </div>
                   
                   <div>
-                    <h4 className="text-gray-100 font-medium mb-1">Role</h4>
-                    <p className="text-gray-400">Full-Stack Developer</p>
-                  </div>
-                  
-                  <div>
                     <h4 className="text-gray-100 font-medium mb-1">Repository</h4>
                     <a 
                       href="https://github.com/Nazarii-Voitkiv/auto-tg-sender" 

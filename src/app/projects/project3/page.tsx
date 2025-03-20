@@ -179,11 +179,6 @@ export default function Project3() {
                   </div>
                   
                   <div>
-                    <h4 className="text-gray-100 font-medium mb-1">Role</h4>
-                    <p className="text-gray-400">Full-Stack Developer</p>
-                  </div>
-                  
-                  <div>
                     <h4 className="text-gray-100 font-medium mb-1">Links</h4>
                     <div className="space-y-2">
                       <a 

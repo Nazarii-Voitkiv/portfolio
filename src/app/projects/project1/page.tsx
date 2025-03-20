@@ -214,10 +214,7 @@ export default function Project1() {
                     <p className="text-gray-400">November 2024 - December 2024</p>
                   </div>
                   
-                  <div>
-                    <h4 className="text-gray-100 font-medium mb-1">Role</h4>
-                    <p className="text-gray-400">Lead Full-Stack Developer</p>
-                  </div>
+                  {/* Role section removed */}
                   
                   <div>
                     <h4 className="text-gray-100 font-medium mb-1">Repository</h4>
