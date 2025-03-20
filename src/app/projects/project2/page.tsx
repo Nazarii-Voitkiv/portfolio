@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 
-export default function Project1() {
+export default function Project2() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const pageRef = useRef<HTMLDivElement>(null);
 
@@ -99,19 +99,19 @@ export default function Project1() {
         
         {/* Project title */}
         <div className="mb-10">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-100 mb-4">Fullstack Online Shop</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-100 mb-4">Telegram Raffle Bot</h1>
           <div className="flex items-center gap-3 text-gray-400">
-            <span className="text-xl">E-commerce Platform</span>
-            <span className="text-sm bg-gray-800/60 px-3 py-1 rounded-full">November - December 2024</span>
+            <span className="text-xl">Automated Raffle Management</span>
+            <span className="text-sm bg-gray-800/60 px-3 py-1 rounded-full">January 2025</span>
           </div>
         </div>
         
-        {/* YouTube Video - replacing the static hero image */}
+        {/* YouTube Video */}
         <div className="w-full aspect-video rounded-lg overflow-hidden mb-12 border border-gray-700">
           <iframe 
             className="w-full h-full"
-            src="https://www.youtube.com/embed/v62LFPjSDqI"
-            title="Fullstack Online Shop Demo"
+            src="https://www.youtube.com/embed/BrR4mcez-oc"
+            title="Telegram Raffle Bot Demo"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
@@ -124,7 +124,7 @@ export default function Project1() {
           <div className="text-gray-400">
             <h2 className="text-2xl font-semibold text-gray-100 mb-6">Project Overview</h2>
             <p className="mb-5 text-lg">
-              A custom-built e-commerce system developed as a monorepo, integrating a high-performance frontend and a scalable backend with secure payment processing, user authentication, and inventory management.
+              A custom-built full-stack solution developed on request for a client, designed to automate and streamline Telegram raffle management. The platform includes a web-based control panel and a Telegram bot, enabling seamless raffle creation, participant management, winner selection, and notifications.
             </p>
             
             <div className="flex flex-col md:flex-row gap-8 my-12">
@@ -140,15 +140,15 @@ export default function Project1() {
                 <ul className="space-y-2 pl-2">
                   <li className="flex items-start gap-2">
                     <span className="text-gray-400 mt-1">•</span>
-                    <span><span className="text-gray-100">Angular 19</span> – Modern, component-based UI development</span>
+                    <span><span className="text-gray-100">Next.js & React</span> – Interactive web interface with server-side rendering</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-gray-400 mt-1">•</span>
-                    <span><span className="text-gray-100">Tailwind CSS & DaisyUI</span> – Responsive and flexible styling</span>
+                    <span><span className="text-gray-100">TypeScript</span> – Type safety and maintainable code</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-gray-400 mt-1">•</span>
-                    <span><span className="text-gray-100">NX Monorepo</span> – Managed SSR, environment configurations, and Jest testing</span>
+                    <span><span className="text-gray-100">Tailwind CSS</span> – Modern and adaptive UI styling</span>
                   </li>
                 </ul>
               </div>
@@ -164,19 +164,19 @@ export default function Project1() {
                 <ul className="space-y-2 pl-2">
                   <li className="flex items-start gap-2">
                     <span className="text-gray-400 mt-1">•</span>
-                    <span><span className="text-gray-100">Spring Boot 3 & Spring Data JPA</span> – Secure and efficient API handling</span>
+                    <span><span className="text-gray-100">Telegraf (Node.js)</span> – Telegram bot for raffle management</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-gray-400 mt-1">•</span>
-                    <span><span className="text-gray-100">Liquibase & PostgreSQL</span> – Database versioning and management</span>
+                    <span><span className="text-gray-100">SQLite & Prisma ORM</span> – Efficient data storage and retrieval</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-gray-400 mt-1">•</span>
-                    <span><span className="text-gray-100">OAuth2 & Spring Security</span> – Authentication and access control</span>
+                    <span><span className="text-gray-100">JWT Authentication</span> – Secure admin access control</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-gray-400 mt-1">•</span>
-                    <span><span className="text-gray-100">Maven & Java 21</span> – Dependency management and build optimization</span>
+                    <span><span className="text-gray-100">Node-cron</span> – Automated raffle checks and winner selection</span>
                   </li>
                 </ul>
               </div>
@@ -196,33 +196,29 @@ export default function Project1() {
                     <div className="flex flex-wrap gap-2 mb-3">
                       <span className="px-3 py-1 rounded-full text-sm"
                             style={{ backgroundColor: 'rgba(134, 231, 212, 0.1)', color: 'rgb(134, 231, 212)' }}>
-                        Stripe
+                        Telegram API
                       </span>
                       <span className="px-3 py-1 rounded-full text-sm"
                             style={{ backgroundColor: 'rgba(134, 231, 212, 0.1)', color: 'rgb(134, 231, 212)' }}>
-                        Kinde
-                      </span>
-                      <span className="px-3 py-1 rounded-full text-sm"
-                            style={{ backgroundColor: 'rgba(134, 231, 212, 0.1)', color: 'rgb(134, 231, 212)' }}>
-                        Docker
+                        Cloudflare Turnstile
                       </span>
                     </div>
                   </div>
                   
                   <div>
                     <h4 className="text-gray-100 font-medium mb-1">Timeline</h4>
-                    <p className="text-gray-400">November 2024 - December 2024</p>
+                    <p className="text-gray-400">January 2025</p>
                   </div>
                   
                   <div>
                     <h4 className="text-gray-100 font-medium mb-1">Role</h4>
-                    <p className="text-gray-400">Lead Full-Stack Developer</p>
+                    <p className="text-gray-400">Full-Stack Developer</p>
                   </div>
                   
                   <div>
                     <h4 className="text-gray-100 font-medium mb-1">Repository</h4>
                     <a 
-                      href="https://github.com/Nazarii-Voitkiv/online-shop" 
+                      href="https://github.com/Nazarii-Voitkiv/raffle-telegram-bot" 
                       className="inline-flex items-center gap-2 text-[rgb(134,231,212)] hover:underline"
                       target="_blank"
                       rel="noopener noreferrer"
@@ -243,9 +239,34 @@ export default function Project1() {
         
         {/* Navigation between projects */}
         <div className="flex justify-between items-center pt-6 border-t border-gray-700">
-          <div></div>
           <Link 
-            href="/projects/project2" 
+            href="/projects/project1" 
+            className="group inline-flex items-center gap-2 text-gray-100 hover:text-[rgb(134,231,212)] transition-colors"
+          >
+            <svg 
+              width="20" 
+              height="20" 
+              viewBox="0 0 20 20" 
+              fill="none" 
+              className="transform transition-all duration-200 group-hover:-translate-x-1"
+              stroke="currentColor"
+            >
+              <path 
+                d="M16 10H4" 
+                strokeWidth="1.5" 
+                strokeLinecap="round"
+              />
+              <path 
+                d="M10 4L4 10L10 16" 
+                strokeWidth="1.5" 
+                strokeLinecap="round" 
+                strokeLinejoin="round"
+              />
+            </svg>
+            <span>Previous Project</span>
+          </Link>
+          <Link 
+            href="/projects/project3" 
             className="group inline-flex items-center gap-2 text-gray-100 hover:text-[rgb(134,231,212)] transition-colors"
           >
             <span>Next Project</span>

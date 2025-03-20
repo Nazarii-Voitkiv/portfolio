@@ -245,61 +245,64 @@ export default function Home() {
 
       {/* Project 2 */}
       <div className="rounded-lg overflow-hidden transition-all duration-200 border border-transparent hover:border-gray-700 hover:bg-gray-800/20 group/item hover:opacity-100 group-hover/projects:opacity-40 hover:!opacity-100">
-        <div className="flex gap-6 items-start p-6">
-          <div className="w-[240px] h-[135px] relative shrink-0 rounded-md overflow-hidden border border-transparent transition-colors duration-200">
-            <Image
-              src="/projects/project2.jpeg"
-              alt="E-commerce Platform"
-              fill
-              className="object-cover"
-            />
-          </div>
-          <div>
-            <div className="flex items-center gap-1 mb-2">
-              <h3 className="text-xl font-medium text-gray-100">E-commerce Platform</h3>
-              <svg 
-                width="20" 
-                height="20" 
-                viewBox="0 0 20 20" 
-                fill="none" 
-                className="transform transition-all duration-200 group-hover/item:-translate-y-1 group-hover/item:translate-x-1 group-hover/item:stroke-[rgb(134,231,212)]"
-                stroke="currentColor"
-              >
-                <path 
-                  d="M7 13L13 7" 
-                  strokeWidth="1.5" 
-                  strokeLinecap="round"
-                />
-                <path 
-                  d="M7 7H13V13" 
-                  strokeWidth="1.5" 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round"
-                />
-              </svg>
+        <Link href="/projects/project2" className="block">
+          <div className="flex gap-6 items-start p-6">
+            <div className="w-[240px] h-[135px] relative shrink-0 rounded-md overflow-hidden border border-transparent transition-colors duration-200 bg-white flex items-center justify-center">
+              <Image
+                src="/telegram-logo.png" 
+                alt="Telegram Logo"
+                width={80}
+                height={80}
+                className="mb-6"  // Adjusted to create more space below the logo
+              />
+              <span className="block text-[#0088cc] font-bold text-2xl absolute bottom-1">Bot</span>
             </div>
-            <p className="text-gray-400 mb-4">
-              Full-featured e-commerce solution with product management,
-              shopping cart, payment processing and order tracking capabilities.
-            </p>
-            <div className="flex flex-wrap gap-2">
-              <span className="px-3 py-1 rounded-full text-sm"
-                    style={{ backgroundColor: 'rgba(134, 231, 212, 0.1)', color: 'rgb(134, 231, 212)' }}>
-                Next.js
-              </span>
-              <span className="px-3 py-1 rounded-full text-sm"
-                    style={{ backgroundColor: 'rgba(134, 231, 212, 0.1)', color: 'rgb(134, 231, 212)' }}>
-                MongoDB
-              </span>
-              <span className="px-3 py-1 rounded-full text-sm"
-                    style={{ backgroundColor: 'rgba(134, 231, 212, 0.1)', color: 'rgb(134, 231, 212)' }}>
-                Stripe API
-              </span>
+            <div>
+              <div className="flex items-center gap-1 mb-2">
+                <h3 className="text-xl font-medium text-gray-100">Telegram Raffle Bot</h3>
+                <svg 
+                  width="20" 
+                  height="20" 
+                  viewBox="0 0 20 20" 
+                  fill="none" 
+                  className="transform transition-all duration-200 group-hover/item:-translate-y-1 group-hover/item:translate-x-1 group-hover/item:stroke-[rgb(134,231,212)]"
+                  stroke="currentColor"
+                >
+                  <path 
+                    d="M7 13L13 7" 
+                    strokeWidth="1.5" 
+                    strokeLinecap="round"
+                  />
+                  <path 
+                    d="M7 7H13V13" 
+                    strokeWidth="1.5" 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+              <p className="text-gray-400 mb-4">
+                A full-stack solution automating Telegram raffles with a web admin panel and bot for participant management and winner selection.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                <span className="px-3 py-1 rounded-full text-sm"
+                      style={{ backgroundColor: 'rgba(134, 231, 212, 0.1)', color: 'rgb(134, 231, 212)' }}>
+                  Next.js
+                </span>
+                <span className="px-3 py-1 rounded-full text-sm"
+                      style={{ backgroundColor: 'rgba(134, 231, 212, 0.1)', color: 'rgb(134, 231, 212)' }}>
+                  Node.js
+                </span>
+                <span className="px-3 py-1 rounded-full text-sm"
+                      style={{ backgroundColor: 'rgba(134, 231, 212, 0.1)', color: 'rgb(134, 231, 212)' }}>
+                  Telegram API
+                </span>
+              </div>
             </div>
           </div>
-        </div>
+        </Link>
       </div>
-      
+
       {/* Project 3 */}
       <div className="rounded-lg overflow-hidden transition-all duration-200 border border-transparent hover:border-gray-700 hover:bg-gray-800/20 group/item hover:opacity-100 group-hover/projects:opacity-40 hover:!opacity-100">
         <div className="flex gap-6 items-start p-6">
@@ -551,13 +554,13 @@ export default function Home() {
 
           <div className="space-y-6">
             <div className="flex gap-4 -mb-10">
-              <a href="https://github.com/YOUR_GITHUB_USERNAME"
+              <a href="https://github.com/Nazarii-Voitkiv"
                  target="_blank"
                  rel="noopener noreferrer"
                  className="p-2 hover:opacity-80 transition-opacity">
                 <Image src="/github.svg" alt="GitHub" width={24} height={24} className="dark:invert" />
               </a>
-              <a href="https://linkedin.com/in/YOUR_LINKEDIN_PROFILE"
+              <a href="https://www.linkedin.com/in/nazarii-voitkiv-106167341/"
                  target="_blank"
                  rel="noopener noreferrer"
                  className="p-2 hover:opacity-80 transition-opacity">
