@@ -22,6 +22,7 @@ export default function Home() {
 
   const scrollToSection = (sectionRef: React.RefObject<HTMLDivElement>, section: string) => {
     sectionRef.current?.scrollIntoView({ behavior: 'smooth' });
+    // Important: Set active section explicitly when navigation is clicked
     setActiveSection(section);
   };
 
@@ -29,8 +30,17 @@ export default function Home() {
   useEffect(() => {
     const options = {
       root: null,
-      rootMargin: '0px',
-      threshold: 0.6, // Розділ вважається видимим коли більше 60% в зоні видимості
+      rootMargin: '-10% 0px -40% 0px', // Adjust margins to improve detection accuracy
+      threshold: 0.3, // Single threshold for more stable detection
+    };
+
+    // Debounce function to prevent rapid section changes
+    let timeoutId: NodeJS.Timeout | null = null;
+    const updateSection = (newSection: string) => {
+      if (timeoutId) clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        setActiveSection(newSection);
+      }, 100); // Small delay to smooth out transitions
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -38,7 +48,7 @@ export default function Home() {
         if (entry.isIntersecting) {
           const id = entry.target.getAttribute('data-section');
           if (id) {
-            setActiveSection(id);
+            updateSection(id);
           }
         }
       });
@@ -54,9 +64,43 @@ export default function Home() {
     });
 
     return () => {
+      if (timeoutId) clearTimeout(timeoutId);
       sections.forEach(section => {
         if (section) observer.unobserve(section);
       });
+    };
+  }, []);
+
+  // Додаємо Intersection Observer для виявлення поточного розділу під час прокрутки
+  useEffect(() => {
+    // Set active section manually when user scrolls
+    const handleManualScroll = () => {
+      // This helps with scroll-based navigation reliability
+      const aboutTop = aboutRef.current?.offsetTop || 0;
+      const experienceTop = experienceRef.current?.offsetTop || 0;
+      const projectsTop = projectsRef.current?.offsetTop || 0;
+      
+      // Get current scroll position with some offset for better detection
+      const scrollPosition = window.scrollY + 300;
+      
+      // Simple position-based detection
+      if (scrollPosition >= projectsTop) {
+        setActiveSection('projects');
+      } else if (scrollPosition >= experienceTop) {
+        setActiveSection('experience');
+      } else {
+        setActiveSection('about');
+      }
+    };
+    
+    // Add scroll listener
+    window.addEventListener('scroll', handleManualScroll);
+    
+    // Also run once on initial load
+    handleManualScroll();
+    
+    return () => {
+      window.removeEventListener('scroll', handleManualScroll);
     };
   }, []);
 
@@ -435,7 +479,7 @@ export default function Home() {
             </div>
             <div>
               <div className="flex items-center gap-1 mb-2">
-                <h3 className="text-xl font-medium text-gray-100">Cybersecurity Education Platform</h3>
+                <h3 className="text-xl font-medium text-gray-100">Cybersecurity Landing Page</h3>
                 <svg 
                   width="20" 
                   height="20" 
@@ -481,59 +525,62 @@ export default function Home() {
       
       {/* Project 6 */}
       <div className="rounded-lg overflow-hidden transition-all duration-200 border border-transparent hover:border-gray-700 hover:bg-gray-800/20 group/item hover:opacity-100 group-hover/projects:opacity-40 hover:!opacity-100">
-        <div className="flex gap-6 items-start p-6">
-          <div className="w-[240px] h-[135px] relative shrink-0 rounded-md overflow-hidden border border-transparent transition-colors duration-200">
-            <Image
-              src="/projects/project5.jpeg"
-              alt="Social Network Platform"
-              fill
-              className="object-cover"
-            />
-          </div>
-          <div>
-            <div className="flex items-center gap-1 mb-2">
-              <h3 className="text-xl font-medium text-gray-100">Social Network Platform</h3>
-              <svg 
-                width="20" 
-                height="20" 
-                viewBox="0 0 20 20" 
-                fill="none" 
-                className="transform transition-all duration-200 group-hover/item:-translate-y-1 group-hover/item:translate-x-1 group-hover/item:stroke-[rgb(134,231,212)]"
-                stroke="currentColor"
-              >
-                <path 
-                  d="M7 13L13 7" 
-                  strokeWidth="1.5" 
-                  strokeLinecap="round"
-                />
-                <path 
-                  d="M7 7H13V13" 
-                  strokeWidth="1.5" 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round"
-                />
-              </svg>
+        <Link href="/projects/project6" className="block">
+          <div className="flex gap-6 items-start p-6">
+            <div className="w-[240px] h-[135px] relative shrink-0 rounded-md overflow-hidden border border-transparent transition-colors duration-200 bg-white flex items-center justify-center">
+              <Image
+                src="/discord-icon.svg" 
+                alt="Discord Bot"
+                width={80}
+                height={80}
+                className="mb-6"
+              />
+              <span className="block text-[#5865F2] font-bold text-2xl absolute bottom-1">Bot</span>
             </div>
-            <p className="text-gray-400 mb-4">
-              Community-driven platform with user profiles, real-time messaging,
-              content sharing and personalized feed algorithms.
-            </p>
-            <div className="flex flex-wrap gap-2">
-              <span className="px-3 py-1 rounded-full text-sm"
-                    style={{ backgroundColor: 'rgba(134, 231, 212, 0.1)', color: 'rgb(134, 231, 212)' }}>
-                Next.js
-              </span>
-              <span className="px-3 py-1 rounded-full text-sm"
-                    style={{ backgroundColor: 'rgba(134, 231, 212, 0.1)', color: 'rgb(134, 231, 212)' }}>
-                Firebase
-              </span>
-              <span className="px-3 py-1 rounded-full text-sm"
-                    style={{ backgroundColor: 'rgba(134, 231, 212, 0.1)', color: 'rgb(134, 231, 212)' }}>
-                WebSockets
-              </span>
+            <div>
+              <div className="flex items-center gap-1 mb-2">
+                <h3 className="text-xl font-medium text-gray-100">Discord Channel Forwarder Bot</h3>
+                <svg 
+                  width="20" 
+                  height="20" 
+                  viewBox="0 0 20 20" 
+                  fill="none" 
+                  className="transform transition-all duration-200 group-hover/item:-translate-y-1 group-hover/item:translate-x-1 group-hover/item:stroke-[rgb(134,231,212)]"
+                  stroke="currentColor"
+                >
+                  <path 
+                    d="M7 13L13 7" 
+                    strokeWidth="1.5" 
+                    strokeLinecap="round"
+                  />
+                  <path 
+                    d="M7 7H13V13" 
+                    strokeWidth="1.5" 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+              <p className="text-gray-400 mb-4">
+                Bot for automated message forwarding between Discord channels with scheduling capabilities, random message selection, and server-specific configurations.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                <span className="px-3 py-1 rounded-full text-sm"
+                      style={{ backgroundColor: 'rgba(134, 231, 212, 0.1)', color: 'rgb(134, 231, 212)' }}>
+                  Node.js
+                </span>
+                <span className="px-3 py-1 rounded-full text-sm"
+                      style={{ backgroundColor: 'rgba(134, 231, 212, 0.1)', color: 'rgb(134, 231, 212)' }}>
+                  TypeScript
+                </span>
+                <span className="px-3 py-1 rounded-full text-sm"
+                      style={{ backgroundColor: 'rgba(134, 231, 212, 0.1)', color: 'rgb(134, 231, 212)' }}>
+                  Discord.js
+                </span>
+              </div>
             </div>
           </div>
-        </div>
+        </Link>
       </div>
     </div>
   );
@@ -636,15 +683,16 @@ export default function Home() {
       {/* Right Content */}
       <div className="w-1/2 min-h-screen ml-[50%] bg-[#0a192f] overflow-y-auto relative">
         <div className="relative">
-          <div className="pt-20 pb-20 pr-20" ref={aboutRef} data-section="about">
+          {/* Add IDs to each section for better targeting */}
+          <div className="pt-20 pb-20 pr-20" ref={aboutRef} id="about-section" data-section="about">
             {aboutContent}
           </div>
           
-          <div className="pt-20 pb-20 pr-20" ref={experienceRef} data-section="experience">
+          <div className="pt-20 pb-20 pr-20" ref={experienceRef} id="experience-section" data-section="experience">
             {experienceContent}
           </div>
           
-          <div className="pt-20 pb-20 pr-20" ref={projectsRef} data-section="projects">
+          <div className="pt-20 pb-20 pr-20" ref={projectsRef} id="projects-section" data-section="projects">
             {projectsContent}
           </div>
         </div>

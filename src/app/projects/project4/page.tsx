@@ -167,38 +167,6 @@ export default function Project4() {
               <div className="flex-1 border border-gray-700 rounded-lg p-6 bg-gray-800/10 hover:bg-gray-800/20 transition-colors">
                 <h3 className="text-xl font-medium text-gray-100 mb-4 flex items-center gap-2">
                   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-[rgb(134,231,212)]">
-                    <path d="M4 6H20V16C20 17.1046 19.1046 18 18 18H6C4.89543 18 4 17.1046 4 16V6Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M4 6L12 13L20 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                  Key Features
-                </h3>
-                <ul className="space-y-2 pl-2">
-                  <li className="flex items-start gap-2">
-                    <span className="text-gray-400 mt-1">•</span>
-                    <span><span className="text-gray-100">Automated Scheduling System</span> – Randomized delivery intervals (30-60 min by default)</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-gray-400 mt-1">•</span>
-                    <span><span className="text-gray-100">Session Management</span> – Secure authentication for bulk messaging</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-gray-400 mt-1">•</span>
-                    <span><span className="text-gray-100">Message Templates</span> – Customizable message content with variables</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-gray-400 mt-1">•</span>
-                    <span><span className="text-gray-100">Group Management</span> – Organized recipient categorization</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-gray-400 mt-1">•</span>
-                    <span><span className="text-gray-100">Delivery Logs</span> – Comprehensive tracking of all sent messages</span>
-                  </li>
-                </ul>
-              </div>
-              
-              <div className="flex-1 border border-gray-700 rounded-lg p-6 bg-gray-800/10 hover:bg-gray-800/20 transition-colors">
-                <h3 className="text-xl font-medium text-gray-100 mb-4 flex items-center gap-2">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-[rgb(134,231,212)]">
                     <path d="M21 16V8a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     <path d="M7 6V4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     <rect x="10" y="11" width="4" height="4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -250,51 +218,6 @@ export default function Project4() {
                       </svg>
                     </a>
                   </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-10 border border-gray-700 rounded-lg p-6 bg-gray-800/10">
-              <h3 className="text-xl font-medium text-gray-100 mb-4">System Architecture</h3>
-              <p className="mb-4">
-                This Telegram bot utilizes a robust architecture that connects multiple technologies to deliver a seamless automated messaging experience:
-              </p>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-                <div className="space-y-3">
-                  <h4 className="text-lg font-medium text-gray-100">Frontend Components</h4>
-                  <ul className="space-y-2 pl-2">
-                    <li className="flex items-start gap-2">
-                      <span className="text-gray-400 mt-1">•</span>
-                      <span><span className="text-gray-100">Admin Interface</span> – Web dashboard for message and group management</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-gray-400 mt-1">•</span>
-                      <span><span className="text-gray-100">Bot Commands</span> – User-friendly interface within Telegram</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-gray-400 mt-1">•</span>
-                      <span><span className="text-gray-100">Analytics View</span> – Real-time delivery monitoring</span>
-                    </li>
-                  </ul>
-                </div>
-                
-                <div className="space-y-3">
-                  <h4 className="text-lg font-medium text-gray-100">Backend Services</h4>
-                  <ul className="space-y-2 pl-2">
-                    <li className="flex items-start gap-2">
-                      <span className="text-gray-400 mt-1">•</span>
-                      <span><span className="text-gray-100">Message Queue</span> – Optimized for reliable delivery</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-gray-400 mt-1">•</span>
-                      <span><span className="text-gray-100">Scheduling Engine</span> – Handles timing and randomization</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-gray-400 mt-1">•</span>
-                      <span><span className="text-gray-100">Analytics Engine</span> – Tracks delivery rates and engagement</span>
-                    </li>
-                  </ul>
                 </div>
               </div>
             </div>

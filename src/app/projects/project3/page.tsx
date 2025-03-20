@@ -152,38 +152,6 @@ export default function Project3() {
               <div className="flex-1 border border-gray-700 rounded-lg p-6 bg-gray-800/10 hover:bg-gray-800/20 transition-colors">
                 <h3 className="text-xl font-medium text-gray-100 mb-4 flex items-center gap-2">
                   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-[rgb(134,231,212)]">
-                    <path d="M4 6H20V16C20 17.1046 19.1046 18 18 18H6C4.89543 18 4 17.1046 4 16V6Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M4 6L12 13L20 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                  Key Features
-                </h3>
-                <ul className="space-y-2 pl-2">
-                  <li className="flex items-start gap-2">
-                    <span className="text-gray-400 mt-1">•</span>
-                    <span><span className="text-gray-100">Responsive Design</span> – Perfect viewing on all devices from mobile to desktop</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-gray-400 mt-1">•</span>
-                    <span><span className="text-gray-100">Service Showcase</span> – Categorized display of all available services</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-gray-400 mt-1">•</span>
-                    <span><span className="text-gray-100">Quote Request System</span> – Custom form for clients to request service quotes</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-gray-400 mt-1">•</span>
-                    <span><span className="text-gray-100">Automated Notifications</span> – Telegram bot integration for instant service requests alerts</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-gray-400 mt-1">•</span>
-                    <span><span className="text-gray-100">SEO Optimization</span> – Tailored for local search in the Lviv region</span>
-                  </li>
-                </ul>
-              </div>
-              
-              <div className="flex-1 border border-gray-700 rounded-lg p-6 bg-gray-800/10 hover:bg-gray-800/20 transition-colors">
-                <h3 className="text-xl font-medium text-gray-100 mb-4 flex items-center gap-2">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-[rgb(134,231,212)]">
                     <path d="M21 16V8a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     <path d="M7 6V4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     <rect x="10" y="11" width="4" height="4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -201,10 +169,6 @@ export default function Project3() {
                       <span className="px-3 py-1 rounded-full text-sm"
                             style={{ backgroundColor: 'rgba(134, 231, 212, 0.1)', color: 'rgb(134, 231, 212)' }}>
                         Google Maps
-                      </span>
-                      <span className="px-3 py-1 rounded-full text-sm"
-                            style={{ backgroundColor: 'rgba(134, 231, 212, 0.1)', color: 'rgb(134, 231, 212)' }}>
-                        Vercel Analytics
                       </span>
                     </div>
                   </div>

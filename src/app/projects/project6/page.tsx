@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 
-export default function Project5() {
+export default function Project6() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const pageRef = useRef<HTMLDivElement>(null);
 
@@ -99,10 +99,25 @@ export default function Project5() {
         
         {/* Project title */}
         <div className="mb-10">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-100 mb-4">Cybersecurity Landing Page</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-100 mb-4">Discord Channel Forwarder Bot</h1>
           <div className="flex items-center gap-3 text-gray-400">
-            <span className="text-xl">Educational Landing Page</span>
-            <span className="text-sm bg-gray-800/60 px-3 py-1 rounded-full">January - February 2025</span>
+            <span className="text-xl">Automated Content Distribution System</span>
+            <span className="text-sm bg-gray-800/60 px-3 py-1 rounded-full">March 2025</span>
+          </div>
+        </div>
+        
+        {/* Bot Commands Image */}
+        <div className="w-full rounded-lg overflow-hidden mb-12 border border-gray-700">
+          <div className="relative aspect-[16/9]">
+            <Image
+              src="/projects/discord-bot-commands.png"
+              alt="Discord Bot Commands and Interface"
+              fill
+              className="object-contain bg-gray-800/50"
+            />
+          </div>
+          <div className="bg-gray-800/80 p-4 text-center text-sm text-gray-300">
+            Available slash commands and configuration options in the Discord Channel Forwarder Bot
           </div>
         </div>
         
@@ -112,7 +127,7 @@ export default function Project5() {
           <div className="text-gray-400">
             <h2 className="text-2xl font-semibold text-gray-100 mb-6">Project Overview</h2>
             <p className="mb-5 text-lg">
-              This custom-built landing page was developed for a cybersecurity course, providing an engaging and informative experience for potential students. The platform highlights course benefits, the learning process, and user testimonials while ensuring security, performance optimization, and a seamless user experience.
+              This custom Discord bot was developed to enable automated message forwarding between channels, providing server administrators with powerful scheduling capabilities. The bot selects random messages from designated source channels and forwards them to target channels based on user-defined schedules, enhancing community engagement through automated content sharing.
             </p>
             
             <div className="flex flex-col md:flex-row gap-8 my-12">
@@ -128,19 +143,19 @@ export default function Project5() {
                 <ul className="space-y-2 pl-2">
                   <li className="flex items-start gap-2">
                     <span className="text-gray-400 mt-1">•</span>
-                    <span><span className="text-gray-100">Next.js 14 (App Router)</span> – Server-side rendering for performance & SEO</span>
+                    <span><span className="text-gray-100">Node.js</span> – Runtime environment for server-side JavaScript execution</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-gray-400 mt-1">•</span>
-                    <span><span className="text-gray-100">TypeScript</span> – Type safety and maintainable code</span>
+                    <span><span className="text-gray-100">TypeScript</span> – Type-safe coding with enhanced developer experience</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-gray-400 mt-1">•</span>
-                    <span><span className="text-gray-100">Tailwind CSS</span> – Modern, adaptive UI styling</span>
+                    <span><span className="text-gray-100">Discord.js</span> – Feature-rich library for Discord API interaction</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-gray-400 mt-1">•</span>
-                    <span><span className="text-gray-100">Framer Motion</span> – Smooth animations for an interactive experience</span>
+                    <span><span className="text-gray-100">Cron-based Scheduling</span> – Flexible automated task execution</span>
                   </li>
                 </ul>
               </div>
@@ -156,18 +171,22 @@ export default function Project5() {
                 </h3>
                 <div className="space-y-4">
                   <div>
-                    <h4 className="text-gray-100 font-medium mb-1">Features</h4>
+                    <h4 className="text-gray-100 font-medium mb-1">Implementation</h4>
                     <div className="flex flex-wrap gap-2 mb-3">
                       <span className="px-3 py-1 rounded-full text-sm"
                             style={{ backgroundColor: 'rgba(134, 231, 212, 0.1)', color: 'rgb(134, 231, 212)' }}>
-                        CMS
+                        Event-driven Architecture
+                      </span>
+                      <span className="px-3 py-1 rounded-full text-sm"
+                            style={{ backgroundColor: 'rgba(134, 231, 212, 0.1)', color: 'rgb(134, 231, 212)' }}>
+                        Multi-server Support
                       </span>
                     </div>
                   </div>
                   
                   <div>
                     <h4 className="text-gray-100 font-medium mb-1">Timeline</h4>
-                    <p className="text-gray-400">January 2025 - February 2025</p>
+                    <p className="text-gray-400">March 2025</p>
                   </div>
                   
                   <div>
@@ -176,35 +195,8 @@ export default function Project5() {
                   </div>
                   
                   <div>
-                    <h4 className="text-gray-100 font-medium mb-1">Links</h4>
-                    <div className="space-y-2">
-                      <a 
-                        href="https://cyber-security-course-web-site.vercel.app" 
-                        className="inline-flex items-center gap-2 text-[rgb(134,231,212)] hover:underline"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <span>Live Website</span>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                          <polyline points="15 3 21 3 21 9"></polyline>
-                          <line x1="10" y1="14" x2="21" y2="3"></line>
-                        </svg>
-                      </a>
-                      <div className="mt-2">
-                        <a 
-                          href="https://github.com/Nazarii-Voitkiv/Cyber-security-course-web-site" 
-                          className="inline-flex items-center gap-2 text-[rgb(134,231,212)] hover:underline"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <span>GitHub Repository</span>
-                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                          </svg>
-                        </a>
-                      </div>
-                    </div>
+                    <h4 className="text-gray-100 font-medium mb-1">Repository</h4>
+                    <p className="text-gray-400">Private (Client-owned)</p>
                   </div>
                 </div>
               </div>
@@ -215,7 +207,7 @@ export default function Project5() {
         {/* Navigation between projects */}
         <div className="flex justify-between items-center pt-6 border-t border-gray-700">
           <Link 
-            href="/projects/project4" 
+            href="/projects/project5" 
             className="group inline-flex items-center gap-2 text-gray-100 hover:text-[rgb(134,231,212)] transition-colors"
           >
             <svg 
@@ -240,32 +232,7 @@ export default function Project5() {
             </svg>
             <span>Previous Project</span>
           </Link>
-          <Link 
-            href="/projects/project6" 
-            className="group inline-flex items-center gap-2 text-gray-100 hover:text-[rgb(134,231,212)] transition-colors"
-          >
-            <span>Next Project</span>
-            <svg 
-              width="20" 
-              height="20" 
-              viewBox="0 0 20 20" 
-              fill="none" 
-              className="transform transition-all duration-200 group-hover:translate-x-1"
-              stroke="currentColor"
-            >
-              <path 
-                d="M4 10H16" 
-                strokeWidth="1.5" 
-                strokeLinecap="round"
-              />
-              <path 
-                d="M10 4L16 10L10 16" 
-                strokeWidth="1.5" 
-                strokeLinecap="round" 
-                strokeLinejoin="round"
-              />
-            </svg>
-          </Link>
+          <div></div>
         </div>
       </div>
     </div>
