@@ -305,59 +305,60 @@ export default function Home() {
 
       {/* Project 3 */}
       <div className="rounded-lg overflow-hidden transition-all duration-200 border border-transparent hover:border-gray-700 hover:bg-gray-800/20 group/item hover:opacity-100 group-hover/projects:opacity-40 hover:!opacity-100">
-        <div className="flex gap-6 items-start p-6">
-          <div className="w-[240px] h-[135px] relative shrink-0 rounded-md overflow-hidden border border-transparent transition-colors duration-200">
-            <Image
-              src="/projects/project3.jpeg"
-              alt="Task Management App"
-              fill
-              className="object-cover"
-            />
-          </div>
-          <div>
-            <div className="flex items-center gap-1 mb-2">
-              <h3 className="text-xl font-medium text-gray-100">Task Management App</h3>
-              <svg 
-                width="20" 
-                height="20" 
-                viewBox="0 0 20 20" 
-                fill="none" 
-                className="transform transition-all duration-200 group-hover/item:-translate-y-1 group-hover/item:translate-x-1 group-hover/item:stroke-[rgb(134,231,212)]"
-                stroke="currentColor"
-              >
-                <path 
-                  d="M7 13L13 7" 
-                  strokeWidth="1.5" 
-                  strokeLinecap="round"
-                />
-                <path 
-                  d="M7 7H13V13" 
-                  strokeWidth="1.5" 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round"
-                />
-              </svg>
+        <Link href="/projects/project3" className="block">
+          <div className="flex gap-6 items-start p-6">
+            <div className="w-[240px] h-[135px] relative shrink-0 rounded-md overflow-hidden border border-transparent transition-colors duration-200">
+              <Image
+                src="/projects/project3.jpg"
+                alt="PROVse Website"
+                fill
+                className="object-cover"
+              />
             </div>
-            <p className="text-gray-400 mb-4">
-              Collaborative task management system with real-time updates,
-              team assignment and progress tracking functionalities.
-            </p>
-            <div className="flex flex-wrap gap-2">
-              <span className="px-3 py-1 rounded-full text-sm"
-                    style={{ backgroundColor: 'rgba(134, 231, 212, 0.1)', color: 'rgb(134, 231, 212)' }}>
-                Angular
-              </span>
-              <span className="px-3 py-1 rounded-full text-sm"
-                    style={{ backgroundColor: 'rgba(134, 231, 212, 0.1)', color: 'rgb(134, 231, 212)' }}>
-                Spring Boot
-              </span>
-              <span className="px-3 py-1 rounded-full text-sm"
-                    style={{ backgroundColor: 'rgba(134, 231, 212, 0.1)', color: 'rgb(134, 231, 212)' }}>
-                PostgreSQL
-              </span>
+            <div>
+              <div className="flex items-center gap-1 mb-2">
+                <h3 className="text-xl font-medium text-gray-100">PROVse Website</h3>
+                <svg 
+                  width="20" 
+                  height="20" 
+                  viewBox="0 0 20 20" 
+                  fill="none" 
+                  className="transform transition-all duration-200 group-hover/item:-translate-y-1 group-hover/item:translate-x-1 group-hover/item:stroke-[rgb(134,231,212)]"
+                  stroke="currentColor"
+                >
+                  <path 
+                    d="M7 13L13 7" 
+                    strokeWidth="1.5" 
+                    strokeLinecap="round"
+                  />
+                  <path 
+                    d="M7 7H13V13" 
+                    strokeWidth="1.5" 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+              <p className="text-gray-400 mb-4">
+                A fully functional, responsive landing page for freight work and handyman services in Lviv with service browsing, quote requests, and Telegram notifications.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                <span className="px-3 py-1 rounded-full text-sm"
+                      style={{ backgroundColor: 'rgba(134, 231, 212, 0.1)', color: 'rgb(134, 231, 212)' }}>
+                  Next.js
+                </span>
+                <span className="px-3 py-1 rounded-full text-sm"
+                      style={{ backgroundColor: 'rgba(134, 231, 212, 0.1)', color: 'rgb(134, 231, 212)' }}>
+                  TypeScript
+                </span>
+                <span className="px-3 py-1 rounded-full text-sm"
+                      style={{ backgroundColor: 'rgba(134, 231, 212, 0.1)', color: 'rgb(134, 231, 212)' }}>
+                  Tailwind CSS
+                </span>
+              </div>
             </div>
           </div>
-        </div>
+        </Link>
       </div>
       
       {/* Project 4 */}
