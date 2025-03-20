@@ -1,6 +1,7 @@
 'use client'
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 
 export default function Home() {
@@ -186,59 +187,60 @@ export default function Home() {
     <div className="max-w-[600px] space-y-8 text-gray-400 group/projects">
       {/* Project 1 */}
       <div className="rounded-lg overflow-hidden transition-all duration-200 border border-transparent hover:border-gray-700 hover:bg-gray-800/20 group/item hover:opacity-100 group-hover/projects:opacity-40 hover:!opacity-100">
-        <div className="flex gap-6 items-start p-6">
-          <div className="w-[240px] h-[135px] relative shrink-0 rounded-md overflow-hidden border border-transparent transition-colors duration-200">
-            <Image
-              src="/projects/project1.jpeg"
-              alt="Project 1"
-              fill
-              className="object-cover"
-            />
-          </div>
-          <div>
-            <div className="flex items-center gap-1 mb-2">
-              <h3 className="text-xl font-medium text-gray-100">Project 1</h3>
-              <svg 
-                width="20" 
-                height="20" 
-                viewBox="0 0 20 20" 
-                fill="none" 
-                className="transform transition-all duration-200 group-hover/item:-translate-y-1 group-hover/item:translate-x-1 group-hover/item:stroke-[rgb(134,231,212)]"
-                stroke="currentColor"
-              >
-                <path 
-                  d="M7 13L13 7" 
-                  strokeWidth="1.5" 
-                  strokeLinecap="round"
-                />
-                <path 
-                  d="M7 7H13V13" 
-                  strokeWidth="1.5" 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round"
-                />
-              </svg>
+        <Link href="/projects/project1" className="block">
+          <div className="flex gap-6 items-start p-6">
+            <div className="w-[240px] h-[135px] relative shrink-0 rounded-md overflow-hidden border border-transparent transition-colors duration-200">
+              <Image
+                src="/projects/project1.jpeg"
+                alt="Fullstack Online Shop"
+                fill
+                className="object-cover"
+              />
             </div>
-            <p className="text-gray-400 mb-4">
-              A comprehensive web application built with modern technologies, 
-              featuring responsive design and seamless user experience.
-            </p>
-            <div className="flex flex-wrap gap-2">
-              <span className="px-3 py-1 rounded-full text-sm"
-                    style={{ backgroundColor: 'rgba(134, 231, 212, 0.1)', color: 'rgb(134, 231, 212)' }}>
-                React
-              </span>
-              <span className="px-3 py-1 rounded-full text-sm"
-                    style={{ backgroundColor: 'rgba(134, 231, 212, 0.1)', color: 'rgb(134, 231, 212)' }}>
-                TypeScript
-              </span>
-              <span className="px-3 py-1 rounded-full text-sm"
-                    style={{ backgroundColor: 'rgba(134, 231, 212, 0.1)', color: 'rgb(134, 231, 212)' }}>
-                Node.js
-              </span>
+            <div>
+              <div className="flex items-center gap-1 mb-2">
+                <h3 className="text-xl font-medium text-gray-100">Fullstack Online Shop</h3>
+                <svg 
+                  width="20" 
+                  height="20" 
+                  viewBox="0 0 20 20" 
+                  fill="none" 
+                  className="transform transition-all duration-200 group-hover/item:-translate-y-1 group-hover/item:translate-x-1 group-hover/item:stroke-[rgb(134,231,212)]"
+                  stroke="currentColor"
+                >
+                  <path 
+                    d="M7 13L13 7" 
+                    strokeWidth="1.5" 
+                    strokeLinecap="round"
+                  />
+                  <path 
+                    d="M7 7H13V13" 
+                    strokeWidth="1.5" 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+              <p className="text-gray-400 mb-4">
+                A custom-built e-commerce system with high-performance frontend and scalable backend, featuring secure payment processing.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                <span className="px-3 py-1 rounded-full text-sm"
+                      style={{ backgroundColor: 'rgba(134, 231, 212, 0.1)', color: 'rgb(134, 231, 212)' }}>
+                  Angular
+                </span>
+                <span className="px-3 py-1 rounded-full text-sm"
+                      style={{ backgroundColor: 'rgba(134, 231, 212, 0.1)', color: 'rgb(134, 231, 212)' }}>
+                  Spring Boot
+                </span>
+                <span className="px-3 py-1 rounded-full text-sm"
+                      style={{ backgroundColor: 'rgba(134, 231, 212, 0.1)', color: 'rgb(134, 231, 212)' }}>
+                  PostgreSQL
+                </span>
+              </div>
             </div>
           </div>
-        </div>
+        </Link>
       </div>
 
       {/* Project 2 */}
