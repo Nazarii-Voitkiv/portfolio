@@ -42,7 +42,8 @@ export default function Home() {
     };
   }, []);
 
-  const scrollToSection = (sectionRef: React.RefObject<HTMLDivElement>, section: string) => {
+  // Fix the type to accept RefObject<HTMLDivElement>
+  const scrollToSection = (sectionRef: React.RefObject<HTMLDivElement | null>, section: string) => {
     sectionRef.current?.scrollIntoView({ behavior: 'smooth' });
     // Important: Set active section explicitly when navigation is clicked
     setActiveSection(section);
@@ -98,7 +99,7 @@ export default function Home() {
     // Set active section manually when user scrolls
     const handleManualScroll = () => {
       // This helps with scroll-based navigation reliability
-      const aboutTop = aboutRef.current?.offsetTop || 0;
+      // Remove unused variable
       const experienceTop = experienceRef.current?.offsetTop || 0;
       const projectsTop = projectsRef.current?.offsetTop || 0;
       
@@ -611,16 +612,9 @@ export default function Home() {
     <div onMouseMove={handleMouseMove} className="flex flex-col lg:flex-row min-h-screen relative bg-[#0a192f]">
       {/* Purple gradient effect that works on all screen sizes */}
       <div 
-        className="pointer-events-none fixed inset-0 z-10 w-screen h-screen"
+        className="pointer-events-none fixed inset-0 z-10 w-screen h-screen gradient-effect"
         style={{
           background: `radial-gradient(circle 400px at ${mousePosition.x}px ${mousePosition.y}px,
-            rgba(180, 20, 255, 0.10) 0%,
-            rgba(170, 10, 255, 0.09) 20%,
-            rgba(160, 10, 255, 0.07) 40%,
-            rgba(150, 0, 255, 0.05) 60%,
-            rgba(140, 0, 240, 0.02) 80%,
-            transparent 100%)`,
-          WebkitBackgroundImage: `radial-gradient(circle 400px at ${mousePosition.x}px ${mousePosition.y}px,
             rgba(180, 20, 255, 0.10) 0%,
             rgba(170, 10, 255, 0.09) 20%,
             rgba(160, 10, 255, 0.07) 40%,

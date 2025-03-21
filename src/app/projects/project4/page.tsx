@@ -21,8 +21,7 @@ export default function Project4() {
     const handleScroll = () => {
       // If we have a stored mouse position, adjust it for the scroll
       if (pageRef.current && mousePosition.x && mousePosition.y) {
-        const rect = pageRef.current.getBoundingClientRect();
-        // Keep last known X position, but adjust the Y based on scroll
+        // Remove unused rect variable
         setMousePosition(prev => ({
           x: prev.x,
           y: prev.y
@@ -41,7 +40,7 @@ export default function Project4() {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [mousePosition.x, mousePosition.y]); // Add missing dependencies
   
   return (
     <div 
@@ -51,16 +50,9 @@ export default function Project4() {
     >
       {/* Gradient overlay - now fixed to the viewport, not the page */}
       <div 
-        className="pointer-events-none fixed inset-0 z-10"
+        className="pointer-events-none fixed inset-0 z-10 gradient-effect"
         style={{
           background: `radial-gradient(circle 400px at ${mousePosition.x}px ${mousePosition.y}px,
-            rgba(180, 20, 255, 0.10) 0%,
-            rgba(170, 10, 255, 0.09) 20%,
-            rgba(160, 10, 255, 0.07) 40%,
-            rgba(150, 0, 255, 0.05) 60%,
-            rgba(140, 0, 240, 0.02) 80%,
-            transparent 100%)`,
-          WebkitBackgroundImage: `radial-gradient(circle 400px at ${mousePosition.x}px ${mousePosition.y}px,
             rgba(180, 20, 255, 0.10) 0%,
             rgba(170, 10, 255, 0.09) 20%,
             rgba(160, 10, 255, 0.07) 40%,

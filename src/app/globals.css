@@ -52,6 +52,21 @@ body {
   }
 }
 
+/* WebKit-specific gradient support */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  .gradient-effect {
+    -webkit-background-image: radial-gradient(
+      circle 400px at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      rgba(180, 20, 255, 0.10) 0%,
+      rgba(170, 10, 255, 0.09) 20%,
+      rgba(160, 10, 255, 0.07) 40%,
+      rgba(150, 0, 255, 0.05) 60%,
+      rgba(140, 0, 240, 0.02) 80%,
+      transparent 100%
+    ) !important;
+  }
+}
+
 /* Mobile responsive adjustments */
 @media (max-width: 1023px) {
   /* Ensure the left content doesn't have fixed positioning on mobile */
