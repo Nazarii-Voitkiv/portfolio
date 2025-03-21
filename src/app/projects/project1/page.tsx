@@ -71,9 +71,9 @@ export default function Project1() {
         }}
       />
       
-      <div className="container mx-auto px-6 py-12 max-w-5xl relative z-20">
-        {/* Back button */}
-        <Link href="/#projects" className="inline-flex items-center gap-2 text-gray-400 hover:text-gray-100 transition-colors mb-10 group">
+      <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-12 max-w-5xl relative z-20">
+        {/* Back button with better mobile spacing */}
+        <Link href="/#projects" className="inline-flex items-center gap-2 text-gray-400 hover:text-gray-100 transition-colors mb-6 sm:mb-10 group">
           <svg 
             width="20" 
             height="20" 
@@ -97,17 +97,17 @@ export default function Project1() {
           <span>Back to Projects</span>
         </Link>
         
-        {/* Project title */}
-        <div className="mb-10">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-100 mb-4">Fullstack Online Shop</h1>
-          <div className="flex items-center gap-3 text-gray-400">
-            <span className="text-xl">E-commerce Platform</span>
-            <span className="text-sm bg-gray-800/60 px-3 py-1 rounded-full">November - December 2024</span>
+        {/* Project title with better mobile spacing */}
+        <div className="mb-6 sm:mb-10">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-100 mb-3 sm:mb-4">Fullstack Online Shop</h1>
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-gray-400">
+            <span className="text-lg sm:text-xl">E-commerce Platform</span>
+            <span className="text-xs sm:text-sm bg-gray-800/60 px-3 py-1 rounded-full">November - December 2024</span>
           </div>
         </div>
         
-        {/* YouTube Video - replacing the static hero image */}
-        <div className="w-full aspect-video rounded-lg overflow-hidden mb-12 border border-gray-700">
+        {/* YouTube Video with better mobile margins */}
+        <div className="w-full aspect-video rounded-lg overflow-hidden mb-8 sm:mb-12 border border-gray-700">
           <iframe 
             className="w-full h-full"
             src="https://www.youtube.com/embed/v62LFPjSDqI"
@@ -118,8 +118,8 @@ export default function Project1() {
           ></iframe>
         </div>
         
-        {/* Project details */}
-        <div className="grid grid-cols-1 md:grid-cols-1 gap-10 mb-12">
+        {/* Project details with better mobile layout */}
+        <div className="grid grid-cols-1 md:grid-cols-1 gap-6 sm:gap-10 mb-8 sm:mb-12">
           {/* Main content */}
           <div className="text-gray-400">
             <h2 className="text-2xl font-semibold text-gray-100 mb-6">Project Overview</h2>
@@ -127,7 +127,8 @@ export default function Project1() {
               A custom-built e-commerce system developed as a monorepo, integrating a high-performance frontend and a scalable backend with secure payment processing, user authentication, and inventory management.
             </p>
             
-            <div className="flex flex-col md:flex-row gap-8 my-12">
+            {/* Feature cards with better mobile layout */}
+            <div className="flex flex-col md:flex-row gap-5 sm:gap-8 my-8 sm:my-12">
               <div className="flex-1 border border-gray-700 rounded-lg p-6 bg-gray-800/10 hover:bg-gray-800/20 transition-colors">
                 <h3 className="text-xl font-medium text-gray-100 mb-4 flex items-center gap-2">
                   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-[rgb(134,231,212)]">
@@ -238,8 +239,8 @@ export default function Project1() {
           </div>
         </div>
         
-        {/* Navigation between projects */}
-        <div className="flex justify-between items-center pt-6 border-t border-gray-700">
+        {/* Navigation buttons with better mobile spacing */}
+        <div className="flex justify-between items-center pt-4 sm:pt-6 border-t border-gray-700">
           <div></div>
           <Link 
             href="/projects/project2" 

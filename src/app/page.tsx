@@ -12,13 +12,35 @@ export default function Home() {
   const experienceRef = useRef<HTMLDivElement>(null);
   const projectsRef = useRef<HTMLDivElement>(null);
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
+  // Improved mouse tracking with viewport coordinates
+  const handleMouseMove = (e: React.MouseEvent) => {
     setMousePosition({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
+      x: e.clientX,
+      y: e.clientY
     });
   };
+
+  // Initialize mouse position and add global mouse tracking
+  useEffect(() => {
+    // Set initial position to middle of screen
+    setMousePosition({
+      x: window.innerWidth / 2,
+      y: window.innerHeight / 2
+    });
+    
+    const handleGlobalMouseMove = (e: MouseEvent) => {
+      setMousePosition({
+        x: e.clientX,
+        y: e.clientY
+      });
+    };
+    
+    window.addEventListener('mousemove', handleGlobalMouseMove);
+    
+    return () => {
+      window.removeEventListener('mousemove', handleGlobalMouseMove);
+    };
+  }, []);
 
   const scrollToSection = (sectionRef: React.RefObject<HTMLDivElement>, section: string) => {
     sectionRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -228,7 +250,7 @@ export default function Home() {
   );
 
   const projectsContent = (
-    <div className="max-w-[600px] space-y-8 text-gray-400 group/projects">
+    <div className="max-w-[600px] space-y-6 sm:space-y-8 text-gray-400 group/projects">
       {/* Project 1 */}
       <div className="rounded-lg overflow-hidden transition-all duration-200 border border-transparent hover:border-gray-700 hover:bg-gray-800/20 group/item hover:opacity-100 group-hover/projects:opacity-40 hover:!opacity-100">
         <Link href="/projects/project1" className="block">
@@ -586,10 +608,10 @@ export default function Home() {
   );
 
   return (
-    <div onMouseMove={handleMouseMove} className="flex min-h-screen relative bg-[#0a192f]">
-      {/* Більш рівномірний розподіл фіолетового кольору */}
+    <div onMouseMove={handleMouseMove} className="flex flex-col lg:flex-row min-h-screen relative bg-[#0a192f]">
+      {/* Purple gradient effect that works on all screen sizes */}
       <div 
-        className="pointer-events-none absolute inset-0 z-10"
+        className="pointer-events-none fixed inset-0 z-10 w-screen h-screen"
         style={{
           background: `radial-gradient(circle 400px at ${mousePosition.x}px ${mousePosition.y}px,
             rgba(180, 20, 255, 0.10) 0%,
@@ -605,22 +627,28 @@ export default function Home() {
             rgba(150, 0, 255, 0.05) 60%,
             rgba(140, 0, 240, 0.02) 80%,
             transparent 100%)`,
+          position: 'fixed', // Ensure it's fixed relative to viewport
+          top: 0,
+          left: 0,
+          width: '100vw',
+          height: '100vh',
           mixBlendMode: "normal"
         }}
       />
 
-      {/* Left Sidebar */}
-      <div className="fixed w-1/2 h-screen p-20 flex items-center bg-[#0a192f]">
-        <div className="flex flex-col justify-between min-h-[700px] max-w-[600px] mx-auto text-left w-full pl-24">
-          <div className="flex flex-col gap-12 -mt-10">
+      {/* Left Sidebar - Now with better mobile responsiveness */}
+      <div className="w-full lg:w-1/2 lg:fixed lg:h-screen p-5 sm:p-6 md:p-8 lg:p-20 flex items-center bg-[#0a192f]">
+        <div className="flex flex-col justify-between min-h-[auto] lg:min-h-[700px] max-w-[600px] mx-auto text-left w-full lg:pl-24">
+          <div className="flex flex-col gap-6 sm:gap-8 lg:gap-12 lg:-mt-10">
             <div className="space-y-2">
-              <h1 className="text-6xl font-bold text-gray-100 font-[titillium-web]">Nazarii Voitkiv</h1>
-              <h2 className="text-2xl text-gray-100 font-[titillium-web]">Full-Stack Developer</h2>
-              <p className="text-gray-400 mt-4 leading-relaxed">
+              <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-gray-100 font-[titillium-web]">Nazarii Voitkiv</h1>
+              <h2 className="text-lg sm:text-xl lg:text-2xl text-gray-100 font-[titillium-web]">Full-Stack Developer</h2>
+              <p className="text-gray-400 mt-3 lg:mt-4 text-sm sm:text-base leading-relaxed pr-0 sm:pr-4">
                 A passionate developer focused on creating elegant, efficient, and user-friendly applications.
               </p>
             </div>
 
+            {/* Navigation - Desktop and Mobile */}
             <nav className="space-y-2 relative font-[titillium-web]">
               <button 
                 onClick={() => scrollToSection(aboutRef, 'about')}
@@ -659,9 +687,26 @@ export default function Home() {
                 <span className={`z-10 ${activeSection === 'projects' ? 'text-gray-100' : ''}`}>PROJECTS</span>
               </button>
             </nav>
+            
+            {/* Mobile-only social links below navigation */}
+            <div className="flex gap-4 mt-4 lg:hidden">
+              <a href="https://github.com/Nazarii-Voitkiv"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 className="p-2 hover:opacity-80 transition-opacity">
+                <Image src="/github.svg" alt="GitHub" width={22} height={22} className="dark:invert" />
+              </a>
+              <a href="https://www.linkedin.com/in/nazarii-voitkiv-106167341/"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 className="p-2 hover:opacity-80 transition-opacity">
+                <Image src="/linkedin.svg" alt="LinkedIn" width={22} height={22} className="dark:invert" />
+              </a>
+            </div>
           </div>
 
-          <div className="space-y-6">
+          {/* Desktop-only Social Links */}
+          <div className="space-y-6 hidden lg:block mt-8 lg:mt-0">
             <div className="flex gap-4 -mb-10">
               <a href="https://github.com/Nazarii-Voitkiv"
                  target="_blank"
@@ -680,20 +725,28 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Right Content */}
-      <div className="w-1/2 min-h-screen ml-[50%] bg-[#0a192f] overflow-y-auto relative">
+      {/* Right Content - With improved mobile styling and centering */}
+      <div className="w-full lg:w-1/2 lg:ml-[50%] bg-[#0a192f] overflow-y-auto relative">
         <div className="relative">
-          {/* Add IDs to each section for better targeting */}
-          <div className="pt-20 pb-20 pr-20" ref={aboutRef} id="about-section" data-section="about">
-            {aboutContent}
+          {/* About Section */}
+          <div className="px-5 sm:px-8 md:px-12 lg:pr-20 pt-8 pb-8 lg:py-20" ref={aboutRef} id="about-section" data-section="about">
+            <div className="max-w-[600px] space-y-8 text-gray-400 text-left">
+              {aboutContent}
+            </div>
           </div>
           
-          <div className="pt-20 pb-20 pr-20" ref={experienceRef} id="experience-section" data-section="experience">
-            {experienceContent}
+          {/* Experience Section */}
+          <div className="px-5 sm:px-8 md:px-12 lg:pr-20 py-8 lg:py-20 border-t border-gray-800/30" ref={experienceRef} id="experience-section" data-section="experience">
+            <div className="max-w-[600px] space-y-8 text-gray-400 text-left">
+              {experienceContent}
+            </div>
           </div>
           
-          <div className="pt-20 pb-20 pr-20" ref={projectsRef} id="projects-section" data-section="projects">
-            {projectsContent}
+          {/* Projects Section */}
+          <div className="px-5 sm:px-8 md:px-12 lg:pr-20 py-8 lg:py-20 border-t border-gray-800/30" ref={projectsRef} id="projects-section" data-section="projects">
+            <div className="max-w-[600px] space-y-6 sm:space-y-8 text-gray-400 group/projects text-left">
+              {projectsContent}
+            </div>
           </div>
         </div>
       </div>
