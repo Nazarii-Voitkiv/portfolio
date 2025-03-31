@@ -688,13 +688,13 @@ export default function Home() {
                  target="_blank"
                  rel="noopener noreferrer"
                  className="p-2 hover:opacity-80 transition-opacity">
-                <Image src="/github.svg" alt="GitHub" width={22} height={22} className="dark:invert" />
+                <Image src="/github.svg" alt="GitHub" width={22} height={22} className="text-white invert" />
               </a>
               <a href="https://www.linkedin.com/in/nazarii-voitkiv-106167341/"
                  target="_blank"
                  rel="noopener noreferrer"
                  className="p-2 hover:opacity-80 transition-opacity">
-                <Image src="/linkedin.svg" alt="LinkedIn" width={22} height={22} className="dark:invert" />
+                <Image src="/linkedin.svg" alt="LinkedIn" width={22} height={22} className="text-white invert" />
               </a>
             </div>
           </div>
@@ -706,13 +706,13 @@ export default function Home() {
                  target="_blank"
                  rel="noopener noreferrer"
                  className="p-2 hover:opacity-80 transition-opacity">
-                <Image src="/github.svg" alt="GitHub" width={24} height={24} className="dark:invert" />
+                <Image src="/github.svg" alt="GitHub" width={24} height={24} className="text-white invert" />
               </a>
               <a href="https://www.linkedin.com/in/nazarii-voitkiv-106167341/"
                  target="_blank"
                  rel="noopener noreferrer"
                  className="p-2 hover:opacity-80 transition-opacity">
-                <Image src="/linkedin.svg" alt="LinkedIn" width={24} height={24} className="dark:invert" />
+                <Image src="/linkedin.svg" alt="LinkedIn" width={24} height={24} className="text-white invert" />
               </a>
             </div>
           </div>
