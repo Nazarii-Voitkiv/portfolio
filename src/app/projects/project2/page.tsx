@@ -1,69 +1,38 @@
 'use client'
 
 import Link from "next/link";
-import { useState, useEffect, useRef } from "react";
+import { useEffect } from "react";
 
 export default function Project2() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const pageRef = useRef<HTMLDivElement>(null);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    // Update mouse position relative to the viewport, not the element
-    setMousePosition({
-      x: e.clientX,
-      y: e.clientY,
-    });
-  };
-  
-  // Handle scroll events to keep the gradient positioned correctly
   useEffect(() => {
-    const handleScroll = () => {
-      // If we have a stored mouse position, adjust it for the scroll
-      if (pageRef.current && mousePosition.x && mousePosition.y) {
-        // Remove unused rect variable
-        setMousePosition(prev => ({
-          x: prev.x,
-          y: prev.y
-        }));
-      }
+    const root = document.documentElement;
+    root.style.setProperty('--mouse-x', '50%');
+    root.style.setProperty('--mouse-y', '50%');
+
+    let raf = 0 as number | 0;
+    const onMove = (e: MouseEvent) => {
+      if (raf) cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        root.style.setProperty('--mouse-x', `${e.clientX}px`);
+        root.style.setProperty('--mouse-y', `${e.clientY}px`);
+      });
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    
-    // Set initial position in the middle of the viewport
-    setMousePosition({
-      x: window.innerWidth / 2,
-      y: window.innerHeight / 2,
-    });
-    
+    window.addEventListener('mousemove', onMove, { passive: true });
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('mousemove', onMove);
+      if (raf) cancelAnimationFrame(raf);
     };
-  }, [mousePosition.x, mousePosition.y]); // Add missing dependencies
+  }, []);
   
   return (
-    <div 
-      ref={pageRef}
-      onMouseMove={handleMouseMove} 
-      className="min-h-screen bg-[#0a192f] relative"
-    >
-      {/* Gradient overlay - now fixed to the viewport, not the page */}
+    <div className="min-h-screen bg-[#0a192f] relative">
       <div 
         className="pointer-events-none fixed inset-0 z-10 gradient-effect"
-        style={{
-          background: `radial-gradient(circle 400px at ${mousePosition.x}px ${mousePosition.y}px,
-            rgba(180, 20, 255, 0.10) 0%,
-            rgba(170, 10, 255, 0.09) 20%,
-            rgba(160, 10, 255, 0.07) 40%,
-            rgba(150, 0, 255, 0.05) 60%,
-            rgba(140, 0, 240, 0.02) 80%,
-            transparent 100%)`,
-          mixBlendMode: "normal"
-        }}
+        style={{ mixBlendMode: "normal" }}
       />
       
       <div className="container mx-auto px-6 py-12 max-w-5xl relative z-20">
-        {/* Back button */}
         <Link href="/#projects" className="inline-flex items-center gap-2 text-gray-400 hover:text-gray-100 transition-colors mb-10 group">
           <svg 
             width="20" 
@@ -88,16 +57,14 @@ export default function Project2() {
           <span>Back to Projects</span>
         </Link>
         
-        {/* Project title */}
         <div className="mb-10">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-100 mb-4">Telegram Raffle Bot</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-100 mb-4">Telegram Raffle Platform</h1>
           <div className="flex items-center gap-3 text-gray-400">
             <span className="text-xl">Automated Raffle Management</span>
             <span className="text-sm bg-gray-800/60 px-3 py-1 rounded-full">January 2025</span>
           </div>
         </div>
         
-        {/* YouTube Video */}
         <div className="w-full aspect-video rounded-lg overflow-hidden mb-12 border border-gray-700">
           <iframe 
             className="w-full h-full"
@@ -109,9 +76,7 @@ export default function Project2() {
           ></iframe>
         </div>
         
-        {/* Project details */}
         <div className="grid grid-cols-1 md:grid-cols-1 gap-10 mb-12">
-          {/* Main content */}
           <div className="text-gray-400">
             <h2 className="text-2xl font-semibold text-gray-100 mb-6">Project Overview</h2>
             <p className="mb-5 text-lg">
@@ -223,7 +188,6 @@ export default function Project2() {
           </div>
         </div>
         
-        {/* Navigation between projects */}
         <div className="flex justify-between items-center pt-6 border-t border-gray-700">
           <Link 
             href="/projects/project1" 
